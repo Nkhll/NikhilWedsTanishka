@@ -36,6 +36,8 @@ JavaScript. It does **not** need updating, but keeping it in sync is harmless.
 | `index.html` | The page: card, redirect, link previews |
 | `config.js` | **The invite URL. The only file to edit.** |
 | `preview.jpg` | 1200&times;630 screenshot used for WhatsApp link previews |
+| `qr.svg` | Vector QR code &mdash; use this for printing |
+| `qr.png` | 1200&times;1200 QR code &mdash; WhatsApp stories / screens |
 | `.nojekyll` | Do not delete |
 | `README.md` | This file |
 
@@ -64,5 +66,23 @@ along with `preview.jpg`.
 
 ## QR code
 
-Generate the QR code **after** the site is live and point it at the
-`github.io` URL above &mdash; never at the `meta.ai` link.
+`qr.svg` and `qr.png` both encode `https://nkhll.github.io/NikhilWedsTanishka/`
+(never the `meta.ai` link), navy `#152A47` on cream `#FCF8EF`, error correction
+level **H**, with a 3-module quiet zone. Both were verified by decoding them
+back to the URL.
+
+- **`qr.svg`** &mdash; true vector, 37&times;37 modules. Use this for the printed
+  invitation. Print at **at least 25&times;25 mm**; if the card is glossy, keep
+  the cream background or place it on white.
+- **`qr.png`** &mdash; 1200&times;1200 for stories and screenshots.
+
+Never crop the cream margin &mdash; scanners need that quiet zone. If the URL
+ever changes, regenerate:
+
+```powershell
+$u = "https://nkhll.github.io/NikhilWedsTanishka/"
+$enc = [uri]::EscapeDataString($u)
+$base = "https://quickchart.io/qr?text=$enc&ecLevel=H&margin=3"
+curl.exe -s "$base&format=svg&size=1000&dark=152A47&light=FCF8EF" -o qr.svg
+curl.exe -s "$base&format=png&size=1200&dark=152A47&light=FCF8EF" -o qr.png
+```
