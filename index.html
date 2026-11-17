@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Nikhil Weds Tanishka &mdash; Wedding Invite</title>
+  <meta name="description" content="You're invited! Tap to open our wedding invitation." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#fffaf5" />
+
+  <!-- Link previews (WhatsApp / iMessage / Instagram) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nikhil Weds Tanishka &mdash; Wedding Invite" />
+  <meta property="og:description" content="You're invited! Tap to open our wedding invitation." />
+  <meta property="og:url" content="https://nkhll.github.io/NikhilWedsTanishka/" />
+  <meta property="og:image" content="https://nkhll.github.io/NikhilWedsTanishka/preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      text-align: center;
+      background: #fffaf5;
+      color: #3a2a22;
+    }
+    main { max-width: 22rem; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 8vw, 40px); font-weight: 400; letter-spacing: 0.01em; }
+    h1 .amp { color: #b98a63; }
+    .sub { margin: 0 0 26px; color: #7a655a; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 15px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: #8a4b2e;
+      color: #fff;
+      text-decoration: none;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .btn:active { filter: brightness(0.95); }
+    .tiny { margin: 18px 0 0; color: #a3907f; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 13px; }
+    .tiny[hidden] { display: none; }
+  </style>
+
+  <!-- URL lives in config.js. The href below is only a fallback. -->
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      function go() {
+        var link = document.getElementById("open");
+        var configured = window.WEDDING && window.WEDDING.inviteUrl;
+        var url = configured || link.getAttribute("href");
+
+        if (!url || url === "#") {
+          document.getElementById("sub").textContent = "The invitation link is not set up yet.";
+          document.getElementById("open").style.display = "none";
+          return;
+        }
+
+        link.href = url;
+
+        // Short delay so the button paints first: if a browser blocks the
+        // automatic jump (WhatsApp / Instagram in-app browsers), guests
+        // still have something to tap.
+        setTimeout(function () { window.location.replace(url); }, 150);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", go);
+      } else {
+        go();
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Nikhil <span class="amp">&amp;</span> Tanishka</h1>
+    <p class="sub" id="sub">You're invited &mdash; opening your invitation&hellip;</p>
+    <a class="btn" id="open" href="https://www.meta.ai/share/a/0a080251-86d4-43b1-bc64-c92d8649c6ef/" rel="noopener">Open Invitation</a>
+    <noscript><p class="tiny">Please tap &ldquo;Open Invitation&rdquo; above.</p></noscript>
+  </main>
+</body>
+</html>
