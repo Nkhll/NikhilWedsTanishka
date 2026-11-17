@@ -35,7 +35,7 @@ JavaScript. It does **not** need updating, but keeping it in sync is harmless.
 | --- | --- |
 | `index.html` | The page: card, redirect, link previews |
 | `config.js` | **The invite URL. The only file to edit.** |
-| `preview.jpg` | 1775&times;923 screenshot used for WhatsApp link previews |
+| `preview.jpg` | 1200&times;630 screenshot used for WhatsApp link previews |
 | `.nojekyll` | Do not delete |
 | `README.md` | This file |
 
