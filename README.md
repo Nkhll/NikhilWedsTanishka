@@ -35,14 +35,15 @@ JavaScript. It does **not** need updating, but keeping it in sync is harmless.
 | --- | --- |
 | `index.html` | The page: card, redirect, link previews |
 | `config.js` | **The invite URL. The only file to edit.** |
-| `preview.jpg` | Optional 1200&times;630 image for WhatsApp link previews |
+| `preview.jpg` | 1200&times;600 screenshot used for WhatsApp link previews |
 | `.nojekyll` | Do not delete |
 | `README.md` | This file |
 
-`preview.jpg` is not committed yet. Until it exists, the WhatsApp preview shows
-title and description without a picture. Add a 1200&times;630 crop of the invite
-(or a simple floral card with the names), then re-share the link to refresh the
-preview.
+The page deliberately mirrors the invite's opening screen &mdash; cream
+`#FCF8EF`, navy `#152A47`, gold `#C7A76A`, "Jai Shree Mataji", date and venue
+&mdash; so the hand-off to `meta.ai` feels seamless. Keep that in mind if you
+change the artwork; update the hex values and the `.when` line in `index.html`
+along with `preview.jpg`.
 
 ## Deploying (already done? these are the steps)
 
